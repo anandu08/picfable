@@ -47,8 +47,7 @@ function Upload() {
         axios.post("/do-something-with-photo", photoData)
         .then((response) => {
           if (response.data.success) {
-            window.location.href = "https://picfable-frontend.vercel.app/app";
-          }
+            window.location.href = "https://picfable.onrender.com
         })
         .catch((error) => {
           console.error("An error occurred:", error);
@@ -78,7 +77,7 @@ function Upload() {
           <form
             id="upload-form"
             method="POST"
-            action="https://picfable.vercel.app/upload-photo"
+            action="https://picfable-backend.onrender.com/upload-photo"
             encType="multipart/form-data"
             onSubmit={handleSubmit}
           >

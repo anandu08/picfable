@@ -17,7 +17,7 @@ const Welcome = () => {
           <h2 className="text-center">Share Your Story!!</h2>
           <button
             onClick={() => {
-              location.href="https://picfable-frontend.vercel.app/user"
+              location.href="https://picfable.onrender.com/user"
             }}
             className="text-center btn btn-success"
           >

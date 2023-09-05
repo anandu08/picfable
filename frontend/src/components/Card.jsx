@@ -14,7 +14,7 @@ function Card(props) {
 
   function DeleteCard() {
     const id = props.id;
-    const url = `https://picfable.vercel.app/stories/deletestory/${id}`;
+    const url = `https://picfable-backend.onrender.com/stories/deletestory/${id}`;
     fetch(url, {
       method: "DELETE",
       headers: {

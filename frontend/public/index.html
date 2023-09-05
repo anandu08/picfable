@@ -14,11 +14,11 @@
 
       function updateCSS() {
         const currentURL = window.location.href;
-        if (currentURL.includes("https://picfable-frontend.vercel.app/user")) {
+        if (currentURL.includes("https://picfable.onrender.com/user")) {
           console.log("I am in user");
           dynamicCSSLink.href = "./styles2.css";
         }
-        else if (currentURL.includes("https://picfable-frontend.vercel.app/upload")) {
+        else if (currentURL.includes("https://picfable.onrender.com/upload")) {
           console.log("I am in upload page");
           dynamicCSSLink.href = "./upload.css";
           dynamicCSSLink2.href = "./header.css";

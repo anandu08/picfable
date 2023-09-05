@@ -4,11 +4,7 @@ const app = express();
 require("dotenv").config();
 const bodyParser = require("body-parser");
 
-app.use(cors({
-  origin: ["https://picfable-frontend.vercel.app"],
-  methods: ["POST","GET"],
-  credentials: true,
-}));
+app.use(cors());
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -161,7 +157,7 @@ app.post("/do-something-with-photo", cors(), async (req, res) => {
     };
 
     try {
-      const response = await fetch("https://picfable.vercel.app/stories/poststory", {
+      const response = await fetch("https://picfable-backend.onrender.com/stories/poststory", {
         method: "POST",
         headers: {
           "auth-token": localStorage.get("token"), // If authentication is required
@@ -231,7 +227,7 @@ app.use(fileupload());
 app.post("/upload-photo", cors(), async (req, res) => {
   const api_key = "215246828679776";
   const cloud_name = "dcrchug4p";
-  const signatureResponse = await fetch("https://picfable.vercel.app/get-signature").then((response) =>
+  const signatureResponse = await fetch("https://picfable-backend.onrender.com/get-signature").then((response) =>
     response.json()
   );
   const data = new FormData();
@@ -254,7 +250,7 @@ app.post("/upload-photo", cors(), async (req, res) => {
     signature: cloudinaryResponse.signature,
   };
 
-  fetch("https://picfable.vercel.app/do-something-with-photo", {
+  fetch("https://picfable-backend.onrender.com/do-something-with-photo", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
