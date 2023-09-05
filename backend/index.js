@@ -3,21 +3,26 @@ const cors = require("cors");
 const app = express();
 require("dotenv").config();
 const bodyParser = require("body-parser");
+
 app.use(cors({
-  origin: ["https://picfable.vercel.app"],
+  origin: ["https://picfable-frontend.vercel.app"],
   methods: ["POST","GET"],
   credentials: true,
 }));
+
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
+
 const connectToMongo = require("./mongoconnect");
 connectToMongo();
+
 app.use(express.json());
+
 app.use("/auth", require("./routes/auth"));
 app.use("/stories", require("./routes/stories"));
 let localStorage = require('local-storage');
 
-require("dotenv").config();
+
 const cloudinary = require("cloudinary").v2;
 const fse = require("fs-extra");
 app.use(express.static("public"));

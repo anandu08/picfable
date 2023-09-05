@@ -44,8 +44,8 @@ router.post(
       };
       const authtoken = jwt.sign(data, JWT_TOKEN);
       const temp = localStorage.get("token");
-      if(temp==authtoken) res.redirect("http://localhost:3006/app");
-      else res.redirect("http://localhost:3006/user");
+      if(temp==authtoken) res.redirect("https://picfable-frontend.vercel.app/app");
+      else res.redirect("https://picfable-frontend.vercel.app/user");
     } catch (error) {
       res.status(500).send("Error while saving user: " + error.message);
     }
@@ -78,7 +78,7 @@ router.post(
         const authtoken = jwt.sign(data, JWT_TOKEN);
         localStorage.set('token',authtoken);
         console.log(localStorage.get("token"));
-        res.redirect("http://localhost:3006/app");
+        res.redirect("https://picfable-frontend.vercel.app/app");
       } else {
         return res.status(400).json({ error: "Wrong credentials" });
       }
