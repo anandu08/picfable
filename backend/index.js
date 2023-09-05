@@ -1,8 +1,13 @@
 const express = require("express");
 const cors = require("cors");
 const app = express();
+require("dotenv").config();
 const bodyParser = require("body-parser");
-app.use(cors());
+app.use(cors({
+  origin: ["https://picfable.vercel.app"],
+  methods: ["POST","GET"],
+  credentials: true,
+}));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: true }));
 const connectToMongo = require("./mongoconnect");
@@ -109,7 +114,7 @@ app.post("/do-something-with-photo", cors(), async (req, res) => {
         "https://api-inference.huggingface.co/models/Salesforce/blip-image-captioning-large",
         {
           headers: {
-            Authorization: "Bearer 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",
+            Authorization: process.env.HUGGING_FACE,
             "Content-Type": "application/json",
           },
           method: "POST",
@@ -125,7 +130,7 @@ app.post("/do-something-with-photo", cors(), async (req, res) => {
         "https://api-inference.huggingface.co/models/aspis/gpt2-genre-story-generation",
         {
           headers: {
-            Authorization: "Bearer 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",
+            Authorization: process.env.HUGGING_FACE,
           },
           method: "POST",
           body: JSON.stringify(data),
@@ -151,7 +156,7 @@ app.post("/do-something-with-photo", cors(), async (req, res) => {
     };
 
     try {
-      const response = await fetch("http://localhost:3000/stories/poststory", {
+      const response = await fetch("https://picfable.vercel.app/stories/poststory", {
         method: "POST",
         headers: {
           "auth-token": localStorage.get("token"), // If authentication is required
@@ -221,7 +226,7 @@ app.use(fileupload());
 app.post("/upload-photo", cors(), async (req, res) => {
   const api_key = "215246828679776";
   const cloud_name = "dcrchug4p";
-  const signatureResponse = await fetch("http://localhost:3000/get-signature").then((response) =>
+  const signatureResponse = await fetch("https://picfable.vercel.app/get-signature").then((response) =>
     response.json()
   );
   const data = new FormData();
@@ -244,7 +249,7 @@ app.post("/upload-photo", cors(), async (req, res) => {
     signature: cloudinaryResponse.signature,
   };
 
-  fetch("http://localhost:3000/do-something-with-photo", {
+  fetch("https://picfable.vercel.app/do-something-with-photo", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
