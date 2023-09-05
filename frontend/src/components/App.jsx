@@ -2,7 +2,7 @@ import React,{useEffect,useState} from 'react';
 import Header from './Header'
 import Card from './Card'
 import axios from 'axios';
-
+axios.defaults.withCredentials = true;
 function Main() {
   // const [stories,setStory]=useState({
   //   title:"",

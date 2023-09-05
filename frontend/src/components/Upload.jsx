@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import Header from "./Header";
 import axios from 'axios';
-
+axios.defaults.withCredentials = true;
 function Upload() {
   const [selectedFile, setSelectedFile] = useState(null);
   const [uploadProgress, setUploadProgress] = useState(0);
