@@ -47,7 +47,7 @@ function Upload() {
         axios.post("/do-something-with-photo", photoData)
         .then((response) => {
           if (response.data.success) {
-            window.location.href = "http://localhost:3006/app";
+            window.location.href = "https://picfable-frontend.vercel.app/app";
           }
         })
         .catch((error) => {
@@ -78,7 +78,7 @@ function Upload() {
           <form
             id="upload-form"
             method="POST"
-            action="http://localhost:3000/upload-photo"
+            action="https://picfable.vercel.app/upload-photo"
             encType="multipart/form-data"
             onSubmit={handleSubmit}
           >

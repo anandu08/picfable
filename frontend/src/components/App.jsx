@@ -14,7 +14,7 @@ function Main() {
     axios
       .request({
         method: "GET",
-        url: `http://localhost:3000/stories/fetchstories`,
+        url: `https://picfable.vercel.app/stories/fetchstories`,
       })
       .then((response) => {
         setData(response.data);
@@ -40,7 +40,7 @@ function Main() {
       )}
 
    <div className='text-center'>
-   <button onClick={() => window.location.href="http://localhost:3006/upload"} className='text-center'>Post Story</button>
+   <button onClick={() => window.location.href="https://picfable-frontend.vercel.app/upload"} className='text-center'>Post Story</button>
    </div>
   </>
   );

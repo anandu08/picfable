@@ -14,7 +14,7 @@ function SignInForm() {
 
   return (
     <div className="form-container sign-in-container">
-      <form method="POST" action="http://localhost:3000/auth/login">
+      <form method="POST" action="https://picfable.vercel.app/auth/login">
         <h1>Sign in</h1>
         <input
           type="email"

@@ -15,7 +15,7 @@ function SignUpForm() {
 
   return (
     <div className="form-container sign-up-container">
-      <form method="POST" action="http://localhost:3000/auth/signup">
+      <form method="POST" action="https://picfable.vercel.app/auth/signup">
         <h1>Create Account</h1>
         <input
           type="email"
