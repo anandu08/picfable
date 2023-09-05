@@ -47,7 +47,8 @@ function Upload() {
         axios.post("/do-something-with-photo", photoData)
         .then((response) => {
           if (response.data.success) {
-            window.location.href = "https://picfable.onrender.com
+            window.location.href = "https://picfable.onrender.com/app";
+          }
         })
         .catch((error) => {
           console.error("An error occurred:", error);
