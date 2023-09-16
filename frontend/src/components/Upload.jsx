@@ -31,6 +31,7 @@ function Upload() {
                 headers: {
                     "Content-Type": "multipart/form-data"
                 },
+                withCredentials: false,
                 onUploadProgress: function(e) {
                     setUploadProgress(e.loaded / e.total);
                 },
