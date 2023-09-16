@@ -1,6 +1,7 @@
 {
   "name": "image-to-story",
   "version": "1.0.0",
+  "proxy": "https://api.cloudinary.com",
   "description": "",
   "main": "index.js",
   "scripts": {
